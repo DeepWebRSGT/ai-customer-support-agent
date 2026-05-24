@@ -1,0 +1,36 @@
+[
+  {
+    "session_id": "session_20260524_161753",
+    "timestamp": "2026-05-24T16:17:53.659330+00:00",
+    "role": "customer",
+    "content": "Siparişim 3 gündür gelmedi",
+    "classification": {
+      "urgency": "normal",
+      "topic": "general",
+      "summary": "Siparişim 3 gündür gelmedi"
+    }
+  },
+  {
+    "session_id": "session_20260524_161753",
+    "timestamp": "2026-05-24T16:17:53.668606+00:00",
+    "role": "agent",
+    "content": "ℹ️ **NORMAL** | 📋 general\n\nMesajınız için teşekkürler. Talebinizi not aldım, ilgili ekip en kısa sürede size dönecektir."
+  },
+  {
+    "session_id": "session_20260524_161756",
+    "timestamp": "2026-05-24T16:17:56.424581+00:00",
+    "role": "customer",
+    "content": "Şifremi unuttum, nasıl sıfırlayabilirim?",
+    "classification": {
+      "urgency": "normal",
+      "topic": "general",
+      "summary": "Şifremi unuttum, nasıl sıfırlayabilirim?"
+    }
+  },
+  {
+    "session_id": "session_20260524_161756",
+    "timestamp": "2026-05-24T16:17:56.435574+00:00",
+    "role": "agent",
+    "content": "ℹ️ **NORMAL** | 📋 general\n\nŞifre sıfırlama: 'Şifremi Unuttum' linkine tıklayın, e-posta adresinize sıfırlama bağlantısı gönderilecektir."
+  }
+]
