@@ -32,5 +32,90 @@
     "timestamp": "2026-05-24T16:17:56.435574+00:00",
     "role": "agent",
     "content": "ℹ️ **NORMAL** | 📋 general\n\nŞifre sıfırlama: 'Şifremi Unuttum' linkine tıklayın, e-posta adresinize sıfırlama bağlantısı gönderilecektir."
+  },
+  {
+    "session_id": "session_20260524_165113",
+    "timestamp": "2026-05-24T16:51:14.194205+00:00",
+    "role": "customer",
+    "content": "Siparişim 3 gündür gelmedi, ne yapmalıyım?",
+    "classification": {
+      "urgency": "normal",
+      "topic": "general",
+      "summary": "Siparişim 3 gündür gelmedi, ne yapmalıyım?"
+    }
+  },
+  {
+    "session_id": "session_20260524_165113",
+    "timestamp": "2026-05-24T16:51:14.199975+00:00",
+    "role": "agent",
+    "content": "Thank you for your message. I've noted your inquiry (topic: general, urgency: normal). Our team will get back to you shortly."
+  },
+  {
+    "session_id": "session_20260524_165158",
+    "timestamp": "2026-05-24T16:52:00.421360+00:00",
+    "role": "customer",
+    "content": "Siparişim 3 gündür gelmedi, ne yapmalıyım?",
+    "classification": {
+      "urgency": "normal",
+      "topic": "general",
+      "summary": "Siparişim 3 gündür gelmedi, ne yapmalıyım?"
+    }
+  },
+  {
+    "session_id": "session_20260524_165158",
+    "timestamp": "2026-05-24T16:52:00.428660+00:00",
+    "role": "agent",
+    "content": "Merhaba, siparişinizin gecikmesi için üzgünüz. Lütfen sipariş numaranızı kontrol ederek kargo takip sayfasından güncel durumu görüntüleyin. Eğer takip bilgisi güncellenmemişse veya başka bir sorun varsa, sipariş numaranızla birlikte bize yazın, detaylıca inceleyelim."
+  },
+  {
+    "session_id": "session_20260524_165203",
+    "timestamp": "2026-05-24T16:52:05.180531+00:00",
+    "role": "customer",
+    "content": "Şifremi unuttum yardım eder misiniz?",
+    "classification": {
+      "urgency": "normal",
+      "topic": "general",
+      "summary": "Şifremi unuttum yardım eder misiniz?"
+    }
+  },
+  {
+    "session_id": "session_20260524_165203",
+    "timestamp": "2026-05-24T16:52:05.186143+00:00",
+    "role": "agent",
+    "content": "Tabii ki yardımcı olabilirim! Giriş sayfasındaki \"Şifremi Unuttum\" linkine tıklayarak kayıtlı e-posta adresinize sıfırlama bağlantısı gönderebilirsiniz. Eğer e-posta gelmezse veya başka bir sorun yaşarsanız, lütfen bize bildirin."
+  },
+  {
+    "session_id": "session_20260524_165203",
+    "timestamp": "2026-05-24T16:52:06.381358+00:00",
+    "role": "customer",
+    "content": "Can you tell me your working hours?",
+    "classification": {
+      "urgency": "low",
+      "topic": "general",
+      "summary": "Can you tell me your working hours?"
+    }
+  },
+  {
+    "session_id": "session_20260524_165203",
+    "timestamp": "2026-05-24T16:52:06.386500+00:00",
+    "role": "agent",
+    "content": "Our working hours are weekdays from 09:00 to 18:00, and Saturdays from 10:00 to 15:00. We are closed on Sundays. Let us know if you need anything else!"
+  },
+  {
+    "session_id": "session_20260524_165203",
+    "timestamp": "2026-05-24T16:52:07.725263+00:00",
+    "role": "customer",
+    "content": "I want to return a product",
+    "classification": {
+      "urgency": "normal",
+      "topic": "returns",
+      "summary": "I want to return a product"
+    }
+  },
+  {
+    "session_id": "session_20260524_165203",
+    "timestamp": "2026-05-24T16:52:07.731483+00:00",
+    "role": "agent",
+    "content": "Of course! You can return your item within 14 days as long as it’s unused and in its original packaging. To start the process, please email support@example.com with your order details. Let me know if you need anything else!"
   }
 ]
