@@ -1,5 +1,6 @@
 """
 Ticket Categorizer — classifies customer inquiries by urgency and topic.
+Keyword-based, zero API cost. Fast enough for real-time classification.
 """
 
 
@@ -10,42 +11,77 @@ class Categorizer:
         "urgent": [
             "bug", "crash", "broken", "not working", "error", "emergency",
             "acil", "bozuk", "calismiyor", "hata", "kilitlendi", "acil yardim",
+            "yardım edin", "hemen", "cozulmedi", "çözülmedi",
+            "spoed", "storing", "kapot", "noodgeval", "niet werkend",
         ],
         "high": [
-            "refund", "charge", "payment", "lost", "missing",
-            "iade", "ucret", "odeme", "kayip", "kayboldu",
+            "refund", "charge", "payment", "lost", "missing", "wrong",
+            "iade", "ucret", "odeme", "kayip", "kayboldu", "yanlis", "yank",
+            "terugbetaling", "kwijt", "verkeerd", "betaling",
         ],
         "normal": [
-            "how", "help", "question", "please", "support",
-            "nasil", "yardim", "soru", "lutfen", "destek",
+            "how", "help", "question", "please", "support", "can you",
+            "nasil", "yardim", "soru", "lutfen", "destek", "yapabilir",
+            "hoe", "hulp", "vraag", "alsjeblieft", "ondersteuning",
         ],
         "low": [
-            "info", "hours", "location", "contact", "price",
+            "info", "hours", "location", "contact", "price", "opening",
             "bilgi", "saat", "adres", "iletisim", "fiyat",
+            "informatie", "tijden", "locatie", "contact", "prijs",
         ],
     }
 
+    # Stem-friendly: include common inflected forms
     TOPIC_KEYWORDS = {
-        "shipping": ["shipping", "delivery", "track", "kargo", "teslimat", "siparis"],
-        "returns": ["return", "refund", "iade", "para iadesi", "degi"],
-        "payment": ["payment", "card", "iDEAL", "odeme", "kart", "fatura"],
-        "account": ["account", "password", "login", "hesap", "sifre", "giris"],
-        "technical": ["bug", "error", "crash", "hata", "bug", "calismiyor"],
-        "general": ["info", "question", "hours", "bilgi", "soru", "genel"],
+        "shipping": [
+            "shipping", "delivery", "track", "shipment", "order", "arrive",
+            "kargo", "teslimat", "sipari", "gonderi", "kurye", "ulasmadi",
+            "verzending", "levering", "bestelling", "track", "trace",
+        ],
+        "returns": [
+            "return", "refund", "exchange", "replace",
+            "iade", "para iadesi", "degis", "degistir", "iptal",
+            "retour", "terugbetaling", "omruilen", "annuleren",
+        ],
+        "payment": [
+            "payment", "card", "credit", "invoice", "bill", "charge",
+            "odeme", "kart", "fatura", "banka", "hesap no",
+            "betaling", "creditcard", "factuur", "rekening",
+        ],
+        "account": [
+            "account", "password", "login", "sign in", "register",
+            "hesap", "sifre", "giris", "kayit", "profile",
+            "account", "wachtwoord", "inloggen", "registreren",
+        ],
+        "technical": [
+            "bug", "error", "crash", "not loading", "freeze", "timeout",
+            "hata", "bug", "calismiyor", "yuklenmiyor", "dondu",
+            "fout", "crash", "laadt niet", "bevroren",
+        ],
     }
 
+    # Always falls back to "general"
+    GENERAL = ["info", "question", "hours", "other",
+               "bilgi", "soru", "genel", "diger",
+               "informatie", "vraag", "algemeen", "overig"]
+
     def classify(self, message: str) -> dict:
-        """Returns {urgency, topic, summary}."""
+        """
+        Returns dict: {urgency, topic, summary}.
+
+        Urgency is first-match (urgent > high > normal > low).
+        Topic is best-match (highest keyword count wins).
+        """
         msg_lower = message.lower()
 
-        # ---- Urgency ----
-        urgency = "normal"  # default
-        for level, keywords in self.URGENCY_MAP.items():
-            if any(kw in msg_lower for kw in keywords):
+        # ---- Urgency (first match wins) ----
+        urgency = "low"
+        for level in ["urgent", "high", "normal", "low"]:
+            if any(kw in msg_lower for kw in self.URGENCY_MAP[level]):
                 urgency = level
                 break
 
-        # ---- Topic ----
+        # ---- Topic (best match wins) ----
         topic = "general"
         best_count = 0
         for cat, keywords in self.TOPIC_KEYWORDS.items():
@@ -54,7 +90,7 @@ class Categorizer:
                 best_count = count
                 topic = cat
 
-        # ---- Generate short summary ----
+        # ---- Short summary ----
         summary = message[:80] + ("..." if len(message) > 80 else "")
 
         return {

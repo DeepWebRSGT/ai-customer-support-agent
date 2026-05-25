@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "ai-customer-support-agent"
+version = "1.0.0"
+description = "AI-powered customer support agent with RAG, multi-language support, and smart ticket categorisation"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Rami A.", email = "18.rami.1045@gmail.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Customer Service",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "rich>=13.7.0",
+    "requests>=2.31.0",
+]
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/DeepWebRSGT/ai-customer-support-agent"
+Source = "https://github.com/DeepWebRSGT/ai-customer-support-agent"
+
+[project.scripts]
+ai-customer-support = "main:main"
